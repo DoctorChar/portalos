@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			a:hover
+			{
+				color: red;
+			}
+			body
+			{
+				background-color: #d7d8ef;
+				font-family: Impact, sans-serif; 
+			}		
+			.image
+			{
+				border-style: double;
+				border-color: black;
+				border-width: 20px 20px 20px 20px;
+				margin: auto;
+				display: block;
+				background-color: #0009ef;		
+			}
+			.ButtonColour
+			{
+				background-color: #00fcfc;
+			}
+			.HeaderText
+			{
+				font-size: 50%;
+			}
+			.PORTALOS
+			{
+				text-align: center;
+				color:#38393f;
+			}
+			#answ
+			{
+				font-size: 50px;
+			}
+			#answarea
+			{
+				height: 500px;
+				width: 1000px;
+				margin: auto;
+			}
+			.buttontext
+			{
+				color: black;
+			}
+			
+
+
+
+
+			.navbar-default 
+			{
+    			background-color: #000000;
+    			border-color: #2d2d2d;
+			}
+			.navbar-default .navbar-brand:hover,
+			.navbar-default .navbar-brand:focus 
+			{
+    			color: #ff0000;
+			}
+			.navbar-default .navbar-nav > li > a:hover,
+			.navbar-default .navbar-nav > li > a:focus 
+			{
+    			color: #ff0000;
+			}
+			.navbar-default .navbar-nav > .open > a,
+			.navbar-default .navbar-nav > .open > a:hover,
+			.navbar-default .navbar-nav > .open > a:focus 
+			{
+    			color: #ff0000;
+    			background-color: #2d2d2d;
+			}
+			.navbar-default .navbar-nav > .dropdown > a .caret 
+			{
+    			border-top-color:  #2d2d2d;
+   				border-bottom-color:  #2d2d2d;
+			}
+			.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+			.navbar-default .navbar-nav > .dropdown > a:focus .caret 
+			{
+			    border-top-color:  #2d2d2d;
+			    border-bottom-color:  #2d2d2d;
+			}
+			.navbar-default .navbar-nav > .active > a,
+			.navbar-default .navbar-nav > .active > a:hover,
+			.navbar-default .navbar-nav > .active > a:focus 
+			{
+		    	color: #cccccc;
+		    	background-color: #3d3d3d;
+			}
+		</style>
+		<script type="text/javascript">
+			function ask() 
+			{
+  			    var Question = document.getElementById("ASK").value;
+  				var Trim = Question.trim();
+  				var q = Trim.toLowerCase();
+  				var ques = ["favorite", "what", "who"];
+  				var ques2 = ["core", "aperture", "you"];
+  				var ans = ["To be honest I hate all of them but the one I hate the most is Wheetly.", "Aperture Science is the lab that created me and allowed me to test on your miserable society!", "I am GLaDOS and I know who you are, you are the one who locked me in a room with Space, aren't you?"];
+  				console.log(ques);
+			    for (var i = 0; i < 6; i++) {
+			        if  (q.includes(ques[i]) && q.includes(ques2[i]) )
+			        {
+			        	document.getElementById("answ").innerHTML = ans[i];
+			      		i = 6;
+			     	}
+			      	else if (q == "")
+			      	{
+			      		document.getElementById("answ").innerHTML = "Please fill in the box";
+			     	} 	
+			     	else 
+			     	{
+			      		document.getElementById("answ").innerHTML = "Please clarify you imbicile because if I could understand I would be GLaDOS to help!";
+			     	}
+			    }
+
+			}
+
+		</script>
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+ 			<div class="container-fluid"> 
+    			<div class="navbar-header">
+      				<a class="navbar-brand PORTALOS" href="#">PORTALOS<p class="HeaderText">The unofficial place for all your PORTAL needs!</p></a>  
+   				</div>
+    			<ul class="nav navbar-nav">
+      				<li><a class="PORTALOS" href="#">Home</a></li>
+      				<li class="active"><a class="PORTALOS" href="Chat WIth Glados.html">Chat With Glados</a></li>
+				    <li><a class="PORTALOS" href="EasterEggs.html">EasterEggs</a></li>
+				    <li><a class="PORTALOS" href="ChatRooms.html">ChatRooms</a></li>
+      			</ul>
+     			<ul class="nav navbar-nav navbar-right">
+      				<li class="dropdown">
+        				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Not Logged In
+        					<span class="caret"></span>	
+        				</a>
+        				<ul class="dropdown-menu">
+          					<li><a href="#">Log in?</a></li>
+          					<li><a href="#">Register?</a></li>
+        				</ul>
+      				</li>    
+    			</ul>
+  			</div>
+		</nav>
+		<div class="container-fluid">				
+ 			<div class="row">
+ 				<div class="col-sm-4">
+ 				</div>
+ 				<div class="col-sm-4">
+ 					<img class="image" src="imgres.jpg" alt="Potatos">
+ 				</div>
+ 				<div class="col-sm-4">
+ 				</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-sm-4" > 		
+				</div>
+ 				<div class="col-sm-4" >
+ 					<div class="form-group">
+ 						<label for="comment">QUESTION:</label>
+ 						<textarea id="ASK" class="form-control" rows="5" id="comment">	
+ 						</textarea>							
+ 					</div>
+ 					<button onclick="ask()" type="button" class="buttontext ButtonColour btn btn-success">ASK</button>
+ 				</div>
+ 				<div class="col-sm-4">
+				</div>
+			</div>				
+  			<div id="answarea">
+				<p id="answ"></p>
+			</div>				
+		</div>
+	</body>
+</html>
