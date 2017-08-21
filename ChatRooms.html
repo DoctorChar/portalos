@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html>
+<<!DOCTYPE html  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -11,6 +12,55 @@
 
 <title>PORTALOS</title>
 <style type="text/css">
+form, p, span {
+    margin:0;
+    padding:0; }
+  
+input { font:12px arial; }
+  
+a {
+    color:#0000FF;
+    text-decoration:none; }
+  
+    a:hover { text-decoration:underline; }
+  
+#wrapper, #loginform {
+    margin:0 auto;
+    padding-bottom:25px;
+    background:#EBF4FB;
+    width:504px;
+    border:1px solid #ACD8F0; }
+  
+#loginform { padding-top:18px; }
+  
+    #loginform p { margin: 5px; }
+  
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+  
+#usermsg {
+    width:395px;
+    border:1px solid #ACD8F0; }
+  
+#submit { width: 60px; }
+  
+.error { color: #ff0000; }
+  
+#menu { padding:12.5px 25px 12.5px 25px; }
+  
+.welcome { float:left; }
+  
+.logout { float:right; }
+  
+.msgln { margin:0 0 2px 0; }
 a:active
 {
 	color: red;
@@ -228,9 +278,47 @@ a
 
 
 
+</div>
 
 
-	</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+Enter Chat and press enter
+<div><input id=input placeholder=you-chat-here /></div>
+
+Chat Output
+<div id=box></div>
+
+<script src=http://cdn.pubnub.com/pubnub.min.js></script>
+<script>(function(){
+var pubnub = PUBNUB.init({publish_key:'pub-c-e0487d90-21ae-4e5a-91cc-54ef8151e795',subscribe_key:'sub-c-dd9dae3c-8634-11e7-ac3a-f2b7c362e666',ssl:true});
+var box = PUBNUB.$('box'), input = PUBNUB.$('input'), channel = 'chat';
+pubnub.subscribe({
+    channel  : channel,
+    callback : function(text) { box.innerHTML = (''+text).replace( /[<>]/g, '' ) + '<br>' + box.innerHTML }
+});
+PUBNUB.bind( 'keyup', input, function(e) {
+    (e.keyCode || e.charCode) === 13 && pubnub.publish({
+        channel : channel, message : input.value, x : (input.value='')
+    })
+} )
+pubnub.publish({ channel : 'chat', message : "hello!" })
+pubnub.subscribe({ channel : 'chat', message : fun })
+})()</script>
+
+
+
+
+
 
 
 </body>
