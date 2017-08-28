@@ -80,7 +80,6 @@ a
     position: relative;
     display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -90,7 +89,6 @@ a
     padding: 0px 0px;
     z-index: 1;
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -99,35 +97,26 @@ a
 		background-color: #d7d8ef;
 		font-family: Impact, sans-serif; 
 	}
-
 	h1
 	{
 		text-align: ;
-
 	}
-
 	#User 
 	{
 		font-family: Arial, Helvetica, sans-serif;
  }
-
-
 	}
-
 	.Top
 	{
 		background-color: #0066ff;
 		
 	}
-
 	#head
 	{
 		font-size: 200%;
 		text-align: center;
 		color: blue;
-
 	}
-
 	.image
 	{
 		border-style: double;
@@ -149,12 +138,6 @@ a
 	{
 		text-align: center;
 	}
-
-
-
-
-
-
 	.navbar-default 
 	{
     	background-color: #000000;
@@ -190,6 +173,9 @@ a
     	color: #cccccc;
     	background-color: #3d3d3d;
 	}
+.table-bordered, .table-bordered td, .table-bordered th{
+    border-color: black !important;
+}
 </style>
 
 </head>
@@ -274,29 +260,53 @@ a
 	</div>
 
 
-	<iframe width="0" height="0" src="https://www.youtube.com/embed/dVVZaZ8yO6o?rel=0&autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
-
-
-
-</div>
-
-
-
-
-
-
-
-
 
 
 
 
 </div>
-Enter Chat and press enter
-<div><input id=input placeholder=you-chat-here /></div>
 
-Chat Output
+
+
+
+<div class="container">      
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+        <div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">Enter text and press enter
+<div><input id=input placeholder=you-chat-here /></div></div>
+  <div class="col-sm-4"></div>
+</div>
+</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        <div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
 <div id=box></div>
+</div>
+  <div class="col-sm-4"></div>
+</div>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+</div>
+
 
 <script src=http://cdn.pubnub.com/pubnub.min.js></script>
 <script>(function(){
@@ -313,9 +323,13 @@ PUBNUB.bind( 'keyup', input, function(e) {
 } )
 pubnub.publish({ channel : 'chat', message : "hello!" })
 pubnub.subscribe({ channel : 'chat', message : fun })
+
+
+pubnub.subscribe({
+  channel: chatChannel,
+  message: handleMessage, // Our global handle message function
+});
 })()</script>
-
-
 
 
 
