@@ -330,32 +330,7 @@ pubnub.subscribe({
   message: handleMessage, // Our global handle message function
 });
 
-function pub() {
-    for (var i = 0; i < 500; i++) {
-        // publish 500 messages...
-        pubnub.publish({
-            channel : 'history_channel',
-            message : "message : " + i
-        });       
-    }
-}
- 
-var pubnub = new PubNub({ 
-    /* initiation arguments */
-})
-pubnub.addListener({
-    status: function(statusEvent) {
-        if (statusEvent.category === "PNConnectedCategory") {
-            pub();
-        }
-    },
-    message: function(message) {
-        // handle message
-    },
-    presence: function(presenceEvent) {
-        // handle presence
-    }
-})
+
   
 
 
