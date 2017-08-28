@@ -357,22 +357,6 @@ pubnub.addListener({
     }
 })
   
-pubnub.subscribe({ 
-    channels: ['history_channel'] 
-
-    pubnub.history(
-    {
-        channel: 'history_channel',
-        reverse: true, // Setting to true will traverse the time line in reverse starting with the oldest message first.
-        count: 100, // how many items to fetch
-        stringifiedTimeToken: true, // false is the default
-        start: '123123123123', // start time token to fetch
-        end: '123123123133' // end timetoken to fetch
-    },
-    function (status, response) {
-        // handle status, response
-    }
-);
 
 
 })()</script>
