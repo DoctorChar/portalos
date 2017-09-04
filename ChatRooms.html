@@ -325,9 +325,17 @@ pubnub.subscribe({ channel : 'chat', message : fun })
 pubnub.subscribe({
   channel: chatChannel,
   message: handleMessage, // Our global handle message function
-
-  
+	});
+	
+varuserId=PUBNUB.uuid();
+varpubnub=PUBNUB.init({
+subscribe_key:'sub-c-dd9dae3c-8634-11e7-ac3a-f2b7c362e666',
+publish_key :'pub-c-e0487d90-21ae-4e5a-91cc-54ef8151e795',
+uuid :userId
 });
+
+		
+
   
 })()</script>
 
