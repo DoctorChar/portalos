@@ -326,17 +326,7 @@ pubnub.subscribe({
   channel: chatChannel,
   message: handleMessage, // Our global handle message function
 
-  pubnub.history({
-  channel: chatChannel,
-  limit: 100
-}, function (messages) {
-  messages = messages[0];
-  messages = messages || [];
-  for(var i = 0; i < messages.length; i++) {
-    handleMessage(messages[i], false);
-  }
-  $(document).scrollTop($(document).height());
-});
+ 
   
 })()</script>
 
