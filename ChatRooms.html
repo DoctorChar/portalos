@@ -305,7 +305,6 @@ a
 
 
 
-</div>
 
 
 <script src=http://cdn.pubnub.com/pubnub.min.js></script>
@@ -323,17 +322,23 @@ PUBNUB.bind( 'keyup', input, function(e) {
 } )
 pubnub.publish({ channel : 'chat', message : "hello!" })
 pubnub.subscribe({ channel : 'chat', message : fun })
-
-
 pubnub.subscribe({
   channel: chatChannel,
   message: handleMessage, // Our global handle message function
+
+  pubnub.history({
+  channel: chatChannel,
+  limit: 100
+}, function (messages) {
+  messages = messages[0];
+  messages = messages || [];
+  for(var i = 0; i < messages.length; i++) {
+    handleMessage(messages[i], false);
+  }
+  $(document).scrollTop($(document).height());
 });
-
-
+});
   
-
-
 })()</script>
 
 
