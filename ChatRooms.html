@@ -323,7 +323,7 @@ PUBNUB.bind( 'keyup', input, function(e) {
     })
 } )
 pubnub.publish({ channel : 'chat', message : "hello!" })
-pubnub.subscribe({ channel : 'chat', message : fun })  
+pubnub.subscribe({ channel : 'chat', message : "fun" })  
 
 pubnub.history(
 	{
