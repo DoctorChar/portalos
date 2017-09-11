@@ -322,13 +322,8 @@ PUBNUB.bind( 'keyup', input, function(e) {
         channel : channel, message : input.value, x : (input.value='')
     })
 } )
-/*pubnub.publish({ channel : 'chat', message : "hello!" })
-pubnub.subscribe({ 
-	channel : 'chat', 
-	message : 'fun' 
-})*/
-
-  
+pubnub.publish({ channel : 'chat', message : "hello!" })
+pubnub.subscribe({ channel : 'chat', message : fun })  
 })()</script>
 
 
