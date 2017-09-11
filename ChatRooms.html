@@ -328,7 +328,7 @@ pubnub.subscribe({ channel : 'chat', message : fun })
 	getAllMessages = function(timetoken) { 
     pubnub.history({ 
         start: timetoken,
-        channel: 'history_test',
+        channel: 'chat',
         callback: function(payload) { 
             var msgs = payload[0]; 
             var start = payload[1]; 
